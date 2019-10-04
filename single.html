@@ -1,0 +1,267 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block cate %}
+	{% for m in mc %}
+		<li><a href="/men/"><img src="/media/{{m.image}}" class="img-responsive" alt=""/></a></li>
+	{% endfor %}
+{% endblock %}
+{% block cat %}
+	{% for m in wc %}
+		<li><a href="/women/"><img src="/media/{{m.image}}" class="img-responsive" alt=""/></a></li>
+	{% endfor %}
+{% endblock %}
+{% block content %}
+<div class="breadcrumbs">
+		<div class="container">
+			<ol class="breadcrumb breadcrumb1 animated wow slideInLeft animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: slideInLeft;">
+				<li><a href="/index/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
+				<li class="active">Single</li>
+			</ol>
+		</div>
+	</div>
+<div class="single">
+
+<div class="container">
+<div class="col-md-9">
+	<div class="col-md-5 grid">		
+		<div class="flexslider">
+			  <ul class="slides">
+			{% for m in img3 %}    <li data-thumb="/media/{{m.image}}">
+			        <div class="thumb-image"> <img src="/media/{{m.image}}"  data-imagezoom="true" class="img-responsive"> </div>
+			    </li>{% endfor %}
+			 <!--   <li data-thumb="images/si1.jpg">
+			         <div class="thumb-image"> <img src="{% static "images/si1.jpg" %}"  data-imagezoom="true" class="img-responsive"> </div>
+			    </li>
+			    <li data-thumb="images/si2.jpg">
+			       <div class="thumb-image"> <img src="{% static "images/si2.jpg"  %}" data-imagezoom="true" class="img-responsive"> </div>
+			    </li> -->
+			  </ul>
+		</div>
+	</div>	
+<div class="col-md-7 single-top-in">
+				{% for m in sin %}		<div class="single-para simpleCart_shelfItem">
+							<h2>{{m.name}}</h2>
+							<p>{{m.text}}</p>
+							<div class="star-on">
+								<ul>
+									<li><a href="#"><i class="glyphicon glyphicon-star"> </i></a></li>
+									<li><a href="#"><i class="glyphicon glyphicon-star"> </i></a></li>
+									<li><a href="#"><i class="glyphicon glyphicon-star"> </i></a></li>
+									<li><a href="#"><i class="glyphicon glyphicon-star"> </i></a></li>
+									<li><a href="#"><i class="glyphicon glyphicon-star"> </i></a></li>
+								</ul>
+								<div class="review">
+									<a href="#"> 3 reviews </a>/
+									<a href="#">  Write a review</a>
+								</div>
+							<div class="clearfix"> </div>
+							</div>
+							
+								<label  class="add-to item_price"><p> &#x20b9;</p>{{m.price}}</label>
+							
+							<div class="available">
+								<h6>Available Options :</h6>
+								<ul>
+									
+								<li>Size:<select>
+									<option>Large</option>
+									<option>Medium</option>
+									<option>small</option>
+									<option>Large</option>
+									<option>small</option>
+								</select></li>
+								<li>Cost:
+										<select>
+										<option>U.S.Dollar</option>
+										<option>Euro</option>
+									</select></li>
+							</ul>
+						</div>
+								<a href="#" class="cart item_add">More details</a>
+						</div>{% endfor %}
+					</div>
+			<div class="clearfix"> </div>
+			<div class="content-top1">
+		{% for m in img %}		<div class="col-md-4 col-md4">
+					<div class="col-md1 simpleCart_shelfItem">
+						<a href="/single/">
+							<img class="img-responsive" src="/media/{{m.image}}"  alt="" />
+						</a>
+						<h3><a href="/single/">{{m.name}}</a></h3>
+						<div class="price">
+								<h5 class="item_price"><p> &#x20b9;</p>{{m.price}}</h5>
+								<a href="#" class="item_add">Add To Cart</a>
+								<div class="clearfix"> </div>
+						</div>
+					</div>
+				</div>	{% endfor %}
+	<!--		<div class="col-md-4 col-md4">
+					<div class="col-md1 simpleCart_shelfItem">
+						<a href="/single/">
+							<img class="img-responsive" src="{% static "images/pi7.png" %}"  alt="" />
+						</a>
+						<h3><a href="/single/">Jeans</a></h3>
+						<div class="price">
+								<h5 class="item_price">$300</h5>
+								<a href="#" class="item_add">Add To Cart</a>
+								<div class="clearfix"> </div>
+						</div>
+						
+					</div>
+				</div>	
+			<div class="col-md-4 col-md4">
+					<div class="col-md1 simpleCart_shelfItem">
+						<a href="/single/">
+							<img class="img-responsive" src="{% static "images/pi.png" %}"  alt="" />
+						</a>
+						<h3><a href="/single/">Palazoo</a></h3>
+						<div class="price">
+								<h5 class="item_price">$300</h5>
+								<a href="#" class="item_add">Add To Cart</a>
+								<div class="clearfix"> </div>
+						</div>
+						
+					</div>
+				</div>	-->
+			
+			<div class="clearfix"> </div>
+			</div>		
+</div>
+<!----->
+<div class="col-md-3 product-bottom">
+			<!--categories-->
+				<div class=" rsidebar span_1_of_left">
+						<h3 class="cate">Categories</h3>
+							 <ul class="menu-drop">{% for m in cat %}
+							<li class="item1"><a href="#">{{m.list}} </a>
+								<ul class="cute">
+									<li class="subitem1"><a href="/single/">Cute Kittens </a></li>
+									<li class="subitem2"><a href="/single/">Strange Stuff </a></li>
+									<li class="subitem3"><a href="/single/">Automatic Fails </a></li>
+								</ul>
+							</li>{% endfor %}
+						<!--	<li class="item2"><a href="#">Women </a>
+								<ul class="cute">
+									<li class="subitem1"><a href="/single/">Cute Kittens </a></li>
+									<li class="subitem2"><a href="/single/">Strange Stuff </a></li>
+									<li class="subitem3"><a href="/single/">Automatic Fails </a></li>
+								</ul>
+							</li>
+							<li class="item3"><a href="#">Kids</a>
+								<ul class="cute">
+									<li class="subitem1"><a href="/single/">Cute Kittens </a></li>
+									<li class="subitem2"><a href="/single/">Strange Stuff </a></li>
+									<li class="subitem3"><a href="/single/">Automatic Fails</a></li>
+								</ul>
+							</li>
+							<li class="item4"><a href="#">Accesories</a>
+								<ul class="cute">
+									<li class="subitem1"><a href="/single/">Cute Kittens </a></li>
+									<li class="subitem2"><a href="/single/">Strange Stuff </a></li>
+									<li class="subitem3"><a href="/single/">Automatic Fails</a></li>
+								</ul>
+							</li>
+									
+							<li class="item4"><a href="#">Shoes</a>
+								<ul class="cute">
+									<li class="subitem1"><a href="/single/">Cute Kittens </a></li>
+									<li class="subitem2"><a href="/single/">Strange Stuff </a></li>
+									<li class="subitem3"><a href="/single/">Automatic Fails </a></li>
+								</ul>
+							</li>  -->
+						</ul>
+					</div>
+				<!--initiate accordion-->
+						<script type="text/javascript">
+							$(function() {
+							    var menu_ul = $('.menu-drop > li > ul'),
+							           menu_a  = $('.menu-drop > li > a');
+							    menu_ul.hide();
+							    menu_a.click(function(e) {
+							        e.preventDefault();
+							        if(!$(this).hasClass('active')) {
+							            menu_a.removeClass('active');
+							            menu_ul.filter(':visible').slideUp('normal');
+							            $(this).addClass('active').next().stop(true,true).slideDown('normal');
+							        } else {
+							            $(this).removeClass('active');
+							            $(this).next().stop(true,true).slideUp('normal');
+							        }
+							    });
+							
+							});
+						</script>
+<!--//menu-->
+<!--seller-->
+				<div class="product-bottom">
+						<h3 class="cate">Best Sellers</h3>{% for m in best %}
+					<div class="product-go">
+						<div class=" fashion-grid">
+							<a href="/single/"><img class="img-responsive " src="/media/{{m.image}}" alt=""></a>	
+						</div>
+						<div class=" fashion-grid1">
+							<h6 class="best2"><a href="/single/" >{{m.text}}  </a></h6>
+							<span class=" price-in1"> ${{m.price}}</span>
+						</div>	
+						<div class="clearfix"> </div>
+					</div>{% endfor %}
+				<!--	<div class="product-go">
+						<div class=" fashion-grid">
+							<a href="/single/"><img class="img-responsive " src="{% static "images/pr1.jpg"  %}" alt=""></a>	
+						</div>
+						<div class=" fashion-grid1">
+							<h6 class="best2"><a href="/single/" >Lorem ipsum dolor sitamet consectetuer  </a></h6>
+							<span class=" price-in1"> $40.00</span>
+						</div>	
+						<div class="clearfix"> </div>
+					</div>
+					<div class="product-go">
+						<div class=" fashion-grid">
+							<a href="/single/"><img class="img-responsive " src="{% static "images/pr2.jpg" %}"  alt=""></a>	
+						</div>
+						<div class=" fashion-grid1">
+							<h6 class="best2"><a href="/single/" >Lorem ipsum dolor sitamet consectetuer  </a></h6>
+							<span class=" price-in1"> $40.00</span>
+						</div>	
+						<div class="clearfix"> </div>
+					</div>	
+					<div class="product-go">
+						<div class=" fashion-grid">
+							<a href="/single/"><img class="img-responsive " src="{% static "images/pr3.jpg" %}"  alt=""></a>	
+						</div>
+						<div class=" fashion-grid1">
+							<h6 class="best2"><a href="/single/" >Lorem ipsum dolor sitamet consectetuer  </a></h6>
+							<span class=" price-in1"> $40.00</span>
+						</div>	
+						<div class="clearfix"> </div>
+					</div>	-->	
+				</div>
+
+<!--//seller-->
+<!--tag-->
+				<div class="tag">	
+						<h3 class="cate">Tags</h3>
+					<div class="tags">
+						<ul>{%  for m in tag %}
+							<li><a href="#">{{m.title}}</a></li>
+						<!--	<li><a href="#">fashion</a></li>
+							<li><a href="#">lorem</a></li>
+							<li><a href="#">dress</a></li>
+							<li><a href="#">fashion</a></li>
+							<li><a href="#">dress</a></li>
+							<li><a href="#">design</a></li>
+							<li><a href="#">dress</a></li>
+							<li><a href="#">design</a></li>
+							<li><a href="#">fashion</a></li>
+							<li><a href="#">lorem</a></li>
+							<li><a href="#">dress</a></li>-->
+						<div class="clearfix"> </div>{% endfor %}
+						</ul>
+				</div>					
+			</div>
+		</div>
+		<div class="clearfix"> </div>
+	</div>
+	</div>
+{% endblock %}

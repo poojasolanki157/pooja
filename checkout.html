@@ -1,0 +1,77 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block cate %}
+	{% for m in mc %}
+		<li><a href="/men/"><img src="/media/{{m.image}}" class="img-responsive" alt=""/></a></li>
+	{% endfor %}
+{% endblock %}
+{% block cat %}
+	{% for m in wc %}
+		<li><a href="/women/"><img src="/media/{{m.image}}" class="img-responsive" alt=""/></a></li>
+	{% endfor %}
+{% endblock %}
+{% block content %}
+<div class="breadcrumbs">
+		<div class="container">
+			<ol class="breadcrumb breadcrumb1 animated wow slideInLeft animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: slideInLeft;">
+				<li><a href="/index/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
+				<li class="active">Checkout</li>
+			</ol>
+		</div>
+	</div>
+<!---->
+<div class="container">
+	<div class="check-out">
+		<h2>Checkout</h2>
+    	    <table >
+		  <tr>
+			<th>Item</th>
+			<th>Qty</th>		
+			<th>Prices</th>
+			<th>Delivery details</th>
+			<th>Sub total</th>
+		  </tr>{% for c in ch %}
+		  <tr>
+			<td class="ring-in"><a href="/single/" class="at-in"><img src="/media/{{c.image}}"  class="img-responsive" alt=""></a>
+			<div class="sed">
+				<h5>{{c.item}}</h5>
+				<p>(At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium) </p>
+			
+			</div>
+			<div class="clearfix"> </div></td>
+		<td class="check"><input type="text" value={{c.qty}} onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}"></td>		
+			<td><p> &#x20b9;</p>{{c.r}}</td>
+			<td>{{c.deliverydetails}}</td>
+			<td><p>&#x20b9;</p>{{c.subtotal}}</td>
+		  </tr>{% endfor %}
+		<!--	  <tr>
+		  <td class="ring-in"><a href="/single/" class="at-in"><img src="{% static "images/ce1.jpg" %}" class="img-responsive" alt=""></a>
+			<div class="sed">
+				<h5>Sed ut perspiciatis unde</h5>
+				<p>(At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium ) </p>
+			</div>
+			<div class="clearfix"> </div></td>
+			<td class="check"><input type="text" value="1" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}"></td>		
+			<td>$200.00</td>
+			<td>FREE SHIPPING</td>
+			<td>$200.00</td>
+		  </tr>
+		  <tr>
+		  <td class="ring-in"><a href="/single/" class="at-in"><img src="{% static "images/ce2.jpg" %}" class="img-responsive" alt=""></a>
+			<div class="sed">
+				<h5>Sed ut perspiciatis unde</h5>
+				<p>(At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium) </p>
+			</div>
+			<div class="clearfix"> </div></td>
+			<td class="check"><input type="text" value="1" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}"></td>		
+			<td>$150.00</td>
+			<td>FREE SHIPPING</td>
+			<td>$150.00</td>
+		  </tr>-->
+	</table>
+	<a href="#" class=" to-buy">PROCEED TO BUY </a>
+	<div class="clearfix"> </div>
+    </div>
+</div>
+{% endblock %}

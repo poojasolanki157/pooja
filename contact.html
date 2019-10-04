@@ -1,0 +1,92 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block cate %}
+	{% for m in mc %}
+		<li><a href="/men/"><img src="/media/{{m.image}}" class="img-responsive" alt=""/></a></li>
+	{% endfor %}
+{% endblock %}
+{% block cat %}
+	{% for m in wc %}
+		<li><a href="/women/"><img src="/media/{{m.image}}" class="img-responsive" alt=""/></a></li>
+	{% endfor %}
+{% endblock %}
+{% block content %}
+<div class="breadcrumbs">
+		<div class="container">
+			<ol class="breadcrumb breadcrumb1 animated wow slideInLeft animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: slideInLeft;">
+				<li><a href="/index/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
+				<li class="active">Contact</li>
+			</ol>
+		</div>
+	</div>
+<div class="contact">
+			<div class="container">
+				<h3>Contact</h3>
+				
+				<div class="contact-grids">
+					<div class="contact-form">
+							<form action="/contact/" method="post">
+							{% csrf_token %}
+								<div class="contact-bottom">
+									<div class="col-md-4 in-contact">
+										<span>Name</span>
+										<input type="text" name="name">
+									</div>
+									<div class="col-md-4 in-contact">
+										<span>Email</span>
+										<input type="text" name="email" >
+									</div>
+									<div class="col-md-4 in-contact">
+										<span>Phonenumber</span>
+										<input type="text" name="phonenumber">
+									</div>
+									<div class="clearfix"> </div>
+								</div>
+							
+								<div class="contact-bottom-top">
+									<span>Message</span>
+									<textarea  name="message"> </textarea>								
+									</div>
+								<input type="submit" value="Send">
+							</form>
+						</div>
+				<div class="address">
+					<div class=" address-more">
+						<h2>Address</h2>
+						<div class="col-md-4 address-grid">
+							<i class="glyphicon glyphicon-map-marker"></i>
+							<div class="address1">
+								<p>Ratanada Jodhpur</p>
+								<p>TL 0291-2546987</p>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="col-md-4 address-grid ">
+							<i class="glyphicon glyphicon-phone"></i>
+							<div class="address1">
+								<p>+9874563215</p>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="col-md-4 address-grid ">
+							<i class="glyphicon glyphicon-envelope"></i>
+							<div class="address1">
+								<p><a href="{% static "wscubetech.com" %}"> wscubetech.com</a></p>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<!--//content-->
+<!--map-->
+	<div class="map">
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d56952.96270617777!2d75.72906077802003!3d26.853938285276346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db500273e196d%3A0x918a37842bf2bb43!2sMansarovar%2C+Jaipur%2C+Rajasthan!5e0!3m2!1sen!2sin!4v1533286130870" width="1600" height="300" frameborder="0" style="border:0" allowfullscreen
+		</iframe>
+	</div>
+<!--//map-->
+{% endblock %}
